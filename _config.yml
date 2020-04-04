@@ -1,0 +1,20 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+title: "Nicolás J. Salazar E."
+author: 
+location: Cali, Colombia
+description: >-
+  I am a Telematics Engineer student
+description_es: >-
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://njse22.com"
+twitter_username: njse22
+github_username: njse22
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
