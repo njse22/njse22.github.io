@@ -1,0 +1,31 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+title: "Nicolás J. Salazar"
+author: 
+location: Cali, Colombia
+description: >-
+  I am study Telematics Engineer
+description_es: >-
+  
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://lvbernal.com"
+twitter_username: njse22
+github_username: njse22
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
