@@ -1,9 +1,9 @@
 [
     {
         "id": "post1",
-        "title": "My First Blog Post with Cisco IOS, paramiko and Ansible",
-        "date": "2023-01-15",
+        "title": "Automatización de redes con Cisco IOS, paramiko y Ansible",
+        "date": "2024-08-01",
         "filePath": "posts/first-post.md",
-        "tags": ["Networking", "Python", "Automation", "cisco"]
+        "tags": ["Networking", "Python", "Automation", "cisco", "paramiko", "ansible"]
     }
 ]

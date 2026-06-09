@@ -1,6 +1,9 @@
-**Facultad de Ingeniería, Diseño y Ciencias Aplicadas**
-2026-06-09
----
+# Sobre esta guía
+
+Esta guía es, es parte de las guías que desarrolle para mi curso de
+*Administración de plataformas*, la misma es una introducción a la
+automatización de redes utilizando Python y Paramiko, además de dar un ejemplo
+básico del uso de Ansible
 
 # Automatización de redes
 
