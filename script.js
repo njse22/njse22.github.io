@@ -57,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchAndRenderPosts() {
         try {
             const response = await fetch('data/posts.json');
-            allPosts = await response.json();
+            allPosts = await response.json(); // allPosts now contains metadata including filePath
+            // Sort posts by date in descending order
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
             renderPosts();
             renderTags();
         } catch (error) {
@@ -68,13 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderPosts() {
         postsList.innerHTML = '';
-        let filteredPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // Filter posts based on search and active tag, then sort by date
+        let filteredPosts = allPosts;
 
         const searchTerm = searchInput.value.toLowerCase();
         if (searchTerm) {
             filteredPosts = filteredPosts.filter(post =>
-                post.title.toLowerCase().includes(searchTerm) ||
-                post.markdown_content.toLowerCase().includes(searchTerm)
+                post.title.toLowerCase().includes(searchTerm)
             );
         }
 
@@ -82,22 +84,42 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredPosts = filteredPosts.filter(post => post.tags.includes(activeTag));
         }
 
-        if (filteredPosts.length === 0) {
+        // Sort by date descending
+        filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Display only the first three posts
+        const postsToDisplay = filteredPosts.slice(0, 3);
+
+        if (postsToDisplay.length === 0) {
             postsList.innerHTML = '<p>No posts found matching your criteria.</p>';
             return;
         }
 
-        filteredPosts.forEach(post => {
+        postsToDisplay.forEach(post => {
             const postElement = document.createElement('div');
             postElement.classList.add('post-item');
-            const excerpt = marked.parse(post.markdown_content.substring(0, 200) + '...').replace(/<p>/g, '').replace(/<\/p>/g, ''); // Simple excerpt generation
 
-            postElement.innerHTML = `
-                <h3><a href="#" data-id="${post.id}">${post.title}</a></h3>
-                <p class="post-meta">${post.date} | ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</p>
-                <p>${excerpt}</p>
-            `;
-            postsList.appendChild(postElement);
+            // To generate an excerpt, we need to fetch the markdown content first.
+            // For simplicity in this view, we'll fetch content only for excerpts.
+            // A more performant solution might pre-generate excerpts or load full content on demand.
+            fetch(post.filePath)
+                .then(response => response.text())
+                .then(markdownContent => {
+                    // Limit excerpt to 200 chars and parse
+                    const excerpt = marked.parse(markdownContent.substring(0, 200) + '...').replace(/<p>/g, '').replace(/<\/p>/g, '');
+                    
+                    postElement.innerHTML = `
+                        <h3><a href="#" data-id="${post.id}">${post.title}</a></h3>
+                        <p class="post-meta">${post.date} | ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</p>
+                        <p>${excerpt}</p>
+                    `;
+                    postsList.appendChild(postElement);
+                })
+                .catch(error => {
+                    console.error(`Error fetching markdown for excerpt for post ${post.id}:`, error);
+                    postElement.innerHTML = `<p class="error">Error loading post excerpt.</p>`;
+                    postsList.appendChild(postElement);
+                });
         });
     }
 
@@ -143,17 +165,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function showPostDetail(postId) {
+    async function showPostDetail(postId) {
         const post = allPosts.find(p => p.id === postId);
         if (post) {
-            postDetailTitle.textContent = post.title;
-            postDetailDate.textContent = post.date;
-            postDetailTags.innerHTML = post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ');
-            postDetailContent.innerHTML = marked.parse(post.markdown_content);
+            try {
+                const response = await fetch(post.filePath);
+                const markdownContent = await response.text();
+                
+                postDetailTitle.textContent = post.title;
+                postDetailDate.textContent = post.date;
+                postDetailTags.innerHTML = post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ');
+                postDetailContent.innerHTML = marked.parse(markdownContent);
 
-            blogPostsSection.style.display = 'none';
-            profileSection.style.display = 'none';
-            blogPostDetailSection.style.display = 'block';
+                blogPostsSection.style.display = 'none';
+                profileSection.style.display = 'none';
+                blogPostDetailSection.style.display = 'block';
+            } catch (error) {
+                console.error(`Error loading post content for ${post.id}:`, error);
+                postDetailContent.innerHTML = '<p class="error">Error loading post content.</p>';
+                // Optionally, show blog posts section again if detail fails to load
+                showBlogPosts();
+            }
         }
     }
 

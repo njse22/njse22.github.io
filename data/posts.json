@@ -3,21 +3,21 @@
         "id": "post1",
         "title": "My First Blog Post",
         "date": "2023-01-15",
-        "markdown_content": "# Welcome to My Blog!\n\nThis is the *first* post on my new personal blog. I'm excited to share my thoughts and projects here.\n\n```javascript\nconsole.log(\"Hello, World!\");\nconst greeting = \"Terminal Style!\";\n// Some more code\nfor (let i = 0; i < 5; i++) {\n    console.log(greeting);\n}\n```\n\nHere are some **highlights**:\n\n*   Static site hosted on GitHub Pages\n*   Dark, terminal-style theme\n*   Powered by Vanilla JS and Markdown\n\nMore content coming soon!\n\n## Subheading Example\n\nThis is a paragraph under a subheading. It's just some filler text to show how the styling works.\n",
+        "filePath": "posts/first-post.md",
         "tags": ["introduction", "web development"]
     },
     {
         "id": "post2",
         "title": "Understanding JavaScript Promises",
         "date": "2023-02-20",
-        "markdown_content": "# JavaScript Promises Explained\n\nPromises are a fundamental concept in modern JavaScript for handling asynchronous operations. They represent a value that may be available now, or in the future, or never.\n\n## States of a Promise\n\nA Promise can be in one of three states:\n\n1.  **Pending:** Initial state, neither fulfilled nor rejected.\n2.  **Fulfilled:** Meaning that the operation completed successfully.\n3.  **Rejected:** Meaning that the operation failed.\n\n```javascript\nconst myPromise = new Promise((resolve, reject) => {\n    setTimeout(() => {\n        const success = true; // or false\n        if (success) {\n            resolve(\"Data fetched successfully!\");\n        } else {\n            reject(\"Failed to fetch data.\");\n        }\n    }, 2000);\n});\n\nmyPromise.then(data => {\n    console.log(data);\n}).catch(error => {\n    console.error(error);\n});\n```\n\nPromises help avoid callback hell and make asynchronous code more readable and manageable.\n",
+        "filePath": "posts/second-post.md",
         "tags": ["javascript", "asynchronous", "promises"]
     },
     {
         "id": "post3",
         "title": "A Deep Dive into CSS Grid Layout",
         "date": "2023-03-10",
-        "markdown_content": "# Mastering CSS Grid Layout\n\nCSS Grid Layout is a powerful two-dimensional layout system for the web. It allows you to design complex responsive layouts more easily and consistently than ever before.\n\n## Key Concepts\n\n*   **Grid Container:** The element on which `display: grid` is applied.\n*   **Grid Items:** The direct children of the grid container.\n*   **Grid Lines:** The dividing lines that make up the structure of the grid.\n*   **Grid Tracks:** The space between two grid lines (rows or columns).\n*   **Grid Cells:** The intersection of a grid row and a grid column.\n\n```css\n.grid-container {\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    grid-template-rows: auto 1fr auto;\n    gap: 1em;\n}\n\n.grid-item {\n    background-color: #333;\n    padding: 1em;\n    border: 1px solid #555;\n}\n```\n\nGrid is incredibly versatile and a must-have tool for any modern web developer's arsenal.\n",
+        "filePath": "posts/third-post.md",
         "tags": ["css", "layout", "web design"]
     }
 ]
