@@ -1,15 +1,15 @@
 {
-    "name": "NJSE22",
-    "title": "Software Engineer | Backend Developer",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "social_links": [
-        {
-            "name": "GitHub",
-            "url": "https://github.com/njse22"
-        },
-        {
-            "name": "LinkedIn",
-            "url": "https://linkedin.com/in/njse22"
-        }
-    ]
+	"name": "njse22",
+	"title": "Telecommunications Engineer",
+	"bio": "Research Assistant at the Informatics and Telecommunications Research Group (i2t) and the Center for Research in Technology and Health (CENIT) at Universidad Icesi. My research is primarily focused on signal processing, data analytics, and Artificial Intelligence applied to telecommunications and Software-Defined Radio (SDR). I also develop telemedicine systems for monitoring neurodegenerative diseases, primary to Parkinson's, leveraging various embedded systems, microcontrollers, and IoT platforms. Additionally, I have served as a technical consultant for the National Spectrum Agency (ANE), defining critical technical parameters for the operation of national telecommunication systems. As an academic mentor, I co-tutor, tutor, and provide technical advisement for undergraduate engineering projects focused on developing custom platforms, tools, and machine learning models for the healthcare and telecom sectors.",
+	"social_links": [
+		{
+			"name": "GitHub",
+			"url": "https://github.com/njse22"
+		},
+		{
+			"name": "LinkedIn",
+			"url": "https://linkedin.com/in/njse22"
+		}
+	]
 }
