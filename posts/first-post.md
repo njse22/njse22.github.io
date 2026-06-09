@@ -1,4 +1,4 @@
-**Facultad de Ingeniería, Diseño y Ciencias Aplicadas**\
+**Facultad de Ingeniería, Diseño y Ciencias Aplicadas**
 2026-06-09
 ---
 
