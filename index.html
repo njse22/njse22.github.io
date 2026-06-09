@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="terminal-style">
+        <div class="container">
+            <h1>$ My Personal Blog</h1>
+            <nav>
+                <a href="#" id="home-link">home</a>
+                <a href="#" id="about-link">about</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="profile-section" class="terminal-block"></section>
+
+        <section id="blog-posts-section" class="terminal-block">
+            <div class="blog-controls">
+                <input type="text" id="search-input" placeholder="> search posts..." class="terminal-input">
+                <div id="tags-container" class="tags-list"></div>
+            </div>
+            <div id="posts-list"></div>
+        </section>
+
+        <section id="blog-post-detail-section" class="terminal-block" style="display:none;">
+            <button id="back-to-posts" class="terminal-button">< back to posts</button>
+            <h2 id="post-detail-title"></h2>
+            <p class="post-meta"><span id="post-detail-date"></span> | <span id="post-detail-tags"></span></p>
+            <div id="post-detail-content"></div>
+        </section>
+    </main>
+
+    <footer class="terminal-style">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> My Personal Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="lib/style-dark.min.css">
+    <script src="lib/marked.min.js"></script>
+    <script src="lib/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
