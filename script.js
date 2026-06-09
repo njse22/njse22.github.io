@@ -20,19 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set current year in footer
     currentYearSpan.textContent = new Date().getFullYear();
 
-    // Marked.js setup for terminal-style code blocks
-    const renderer = new marked.Renderer();
-    renderer.code = (code, language) => {
-        const highlighted = hljs.highlightAuto(code, language ? [language] : undefined).value;
-        return `<pre><code>${highlighted}</code></pre>`;
-    };
-    marked.setOptions({
-        renderer: renderer,
-        highlight: function(code, lang) {
-            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-            return hljs.highlight(code, { language }).value;
-        },
-        langPrefix: 'hljs language-'
+    // Marked.js setup for terminal-style code blocks with highlight.js
+    marked.use({
+        renderer: {
+            code({ text, lang }) {
+                const language = hljs.getLanguage(lang) ? lang : null;
+                const highlighted = language 
+                    ? hljs.highlight(text, { language: lang }).value 
+                    : hljs.highlightAuto(text).value;
+                return `<pre><code class="hljs language-${language || 'plaintext'}">${highlighted}</code></pre>`;
+            }
+        }
     });
 
 
