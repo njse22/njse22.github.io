@@ -1,23 +1,9 @@
 [
     {
         "id": "post1",
-        "title": "My First Blog Post",
+        "title": "My First Blog Post with Cisco IOS, paramiko and Ansible",
         "date": "2023-01-15",
         "filePath": "posts/first-post.md",
-        "tags": ["introduction", "web development"]
-    },
-    {
-        "id": "post2",
-        "title": "Understanding JavaScript Promises",
-        "date": "2023-02-20",
-        "filePath": "posts/second-post.md",
-        "tags": ["javascript", "asynchronous", "promises"]
-    },
-    {
-        "id": "post3",
-        "title": "A Deep Dive into CSS Grid Layout",
-        "date": "2023-03-10",
-        "filePath": "posts/third-post.md",
-        "tags": ["css", "layout", "web design"]
+        "tags": ["Networking", "Python", "Automation", "cisco"]
     }
 ]
