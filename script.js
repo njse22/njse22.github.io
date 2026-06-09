@@ -95,15 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        postsToDisplay.forEach(post => {
+        // Fetch content for excerpts and render posts asynchronously
+        const postPromises = postsToDisplay.map(post => {
             const postElement = document.createElement('div');
             postElement.classList.add('post-item');
 
-            // To generate an excerpt, we need to fetch the markdown content first.
-            // For simplicity in this view, we'll fetch content only for excerpts.
-            // A more performant solution might pre-generate excerpts or load full content on demand.
-            fetch(post.filePath)
-                .then(response => response.text())
+            return fetch(post.filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(markdownContent => {
                     // Limit excerpt to 200 chars and parse
                     const excerpt = marked.parse(markdownContent.substring(0, 200) + '...').replace(/<p>/g, '').replace(/<\/p>/g, '');
@@ -120,6 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     postElement.innerHTML = `<p class="error">Error loading post excerpt.</p>`;
                     postsList.appendChild(postElement);
                 });
+        });
+
+        // Wait for all excerpt fetches and renders to complete (optional, but good for coordination)
+        Promise.allSettled(postPromises).then(() => {
+            // Any finalizations after all posts are rendered, if needed.
         });
     }
 
