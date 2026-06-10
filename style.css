@@ -67,6 +67,28 @@ main {
     padding: 2em 0;
 }
 
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.language-toggle button {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    padding: 0.3em 0.8em;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9em;
+}
+
+.language-toggle button:hover, .language-toggle button.active {
+    background-color: var(--accent-color-secondary);
+    border-color: var(--accent-color-secondary);
+    color: var(--bg-color);
+}
+
 .terminal-block {
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
