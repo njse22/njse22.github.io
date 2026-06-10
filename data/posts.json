@@ -3,9 +3,9 @@
         "id": "post1",
         "title_en": "Network Automation with Cisco IOS, Paramiko, and Ansible",
         "title_es": "Automatización de redes con Cisco IOS, Paramiko y Ansible",
-        "date": "2024-08-01",
-        "filePath_en": "posts/first-post-en.md",
-        "filePath_es": "posts/first-post-es.md",
+        "date": "2026-04-07",
+        "filePath_en": "posts/post-01-en.md",
+        "filePath_es": "posts/post-01-es.md",
         "tags": ["Networking", "Python", "Automation", "cisco", "paramiko", "ansible"]
     }
 ]

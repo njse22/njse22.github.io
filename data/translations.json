@@ -16,7 +16,7 @@
         "nav_home": "home",
         "nav_about": "about",
         "nav_articles": "articles",
-        "header_title": "$ Personal Blog (Nicolas J. Salazar E.)",
+        "header_title": "$ Personal Blog (njse22)",
         "footer_rights": "All rights reserved."
     },
     "es": {
@@ -36,7 +36,7 @@
         "nav_home": "inicio",
         "nav_about": "sobre mí",
         "nav_articles": "artículos",
-        "header_title": "$ Blog Personal (Nicolas J. Salazar E.)",
+        "header_title": "$ Blog Personal (njse22)",
         "footer_rights": "Todos los derechos reservados."
     }
 }
