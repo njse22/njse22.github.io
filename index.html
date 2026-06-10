@@ -13,7 +13,12 @@
             <nav>
                 <a href="#" id="home-link">home</a>
                 <a href="#" id="about-link">about</a>
+                <a href="#" id="articles-link">articles</a>
             </nav>
+            <div id="language-toggle" class="language-toggle">
+                <button id="en-btn">EN</button>
+                <button id="es-btn">ES</button>
+            </div>
         </div>
     </header>
 
@@ -34,6 +39,15 @@
             <p class="post-meta"><span id="post-detail-date"></span> | <span id="post-detail-tags"></span></p>
             <div id="post-detail-content"></div>
         </section>
+
+        <section id="articles-section" class="terminal-block" style="display:none;">
+            <div class="articles-controls">
+                <input type="text" id="articles-search-input" placeholder="> search articles..." class="terminal-input">
+                <div id="articles-tags-container" class="tags-list"></div>
+            </div>
+            <div id="articles-list"></div>
+        </section>
+
     </main>
 
     <footer class="terminal-style">

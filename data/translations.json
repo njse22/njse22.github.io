@@ -1,0 +1,42 @@
+{
+    "en": {
+        "search_placeholder": "> search posts...",
+        "search_articles_placeholder": "> search articles...",
+        "back_to_posts": "< back to posts",
+        "all_tags": "all",
+        "articles_section_title": "Research Articles",
+        "blog_section_title": "Blog Posts",
+        "error_loading_profile": "Error loading profile data.",
+        "error_loading_posts": "Error loading blog posts.",
+        "no_posts_found": "No posts found matching your criteria.",
+        "no_articles_found": "No articles found matching your criteria.",
+        "error_loading_excerpt": "Error loading post excerpt.",
+        "error_loading_post_content": "Error loading post content.",
+        "error_loading_articles": "Error loading articles.",
+        "nav_home": "home",
+        "nav_about": "about",
+        "nav_articles": "articles",
+        "header_title": "$ Personal Blog (Nicolas J. Salazar E.)",
+        "footer_rights": "All rights reserved."
+    },
+    "es": {
+        "search_placeholder": "> buscar entradas...",
+        "search_articles_placeholder": "> buscar artículos...",
+        "back_to_posts": "< volver a las entradas",
+        "all_tags": "todas",
+        "articles_section_title": "Artículos de Investigación",
+        "blog_section_title": "Entradas del Blog",
+        "error_loading_profile": "Error al cargar los datos del perfil.",
+        "error_loading_posts": "Error al cargar las entradas del blog.",
+        "no_posts_found": "No se encontraron entradas que coincidan con sus criterios.",
+        "no_articles_found": "No se encontraron artículos que coincidan con sus criterios.",
+        "error_loading_excerpt": "Error al cargar el resumen de la entrada.",
+        "error_loading_post_content": "Error al cargar el contenido de la entrada.",
+        "error_loading_articles": "Error al cargar los artículos.",
+        "nav_home": "inicio",
+        "nav_about": "sobre mí",
+        "nav_articles": "artículos",
+        "header_title": "$ Blog Personal (Nicolas J. Salazar E.)",
+        "footer_rights": "Todos los derechos reservados."
+    }
+}

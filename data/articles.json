@@ -1,0 +1,22 @@
+[
+    {
+        "id": "article1",
+        "title_en": "An IoT-based Telemedicine System for Remote Monitoring of Neurodegenerative Diseases",
+        "title_es": "Sistema de Telemedicina basado en IoT para el Monitoreo Remoto de Enfermedades Neurodegenerativas",
+        "date": "2025-03-15",
+        "venue_en": "IEEE Journal of Translational Engineering in Health and Medicine",
+        "venue_es": "Revista IEEE de Ingeniería Traslacional en Salud y Medicina",
+        "url": "https://ieeexplore.ieee.org",
+        "tags": ["IoT", "Telemedicine", "Health"]
+    },
+    {
+        "id": "article2",
+        "title_en": "Machine Learning Models for Real-Time Signal Processing in Software-Defined Radio",
+        "title_es": "Modelos de Aprendizaje Automático para el Procesamiento de Señales en Tiempo Real en Radio Definida por Software",
+        "date": "2026-01-20",
+        "venue_en": "International Journal of Wireless Information Networks",
+        "venue_es": "Revista Internacional de Redes de Información Inalámbricas",
+        "url": "https://link.springer.com",
+        "tags": ["SDR", "Machine Learning", "Wireless"]
+    }
+]
