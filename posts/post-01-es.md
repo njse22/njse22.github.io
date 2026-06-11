@@ -1,11 +1,147 @@
 # Sobre esta guía
 
-Esta guía es, es parte de las guías que desarrolle para mi curso de
-*Administración de plataformas*, la misma es una introducción a la
-automatización de redes utilizando Python y Paramiko, además de dar un ejemplo
-básico del uso de Ansible
+Esta guía es parte de las que desarrollé para mi curso de *Administración de
+plataformas*. Sirve como una introducción a la automatización de redes
+utilizando Python y Paramiko, además de proporcionar un ejemplo básico del uso
+de Ansible. Esta práctica se realizó utilizando una VM con Ubuntu Server 24.04
+LTS.
 
-# Automatización de redes
+
+# ¿Qué es Ansible?
+
+Ansible es un framework de automatización de infraestructura que permite
+automatizar la configuración de servidores y aplicaciones. También soporta la
+configuración de equipos de red a través de conexiones SSH.
+
+# Instalación de Ansible
+
+``` bash
+sudo apt update
+sudo apt install ansible -y 
+```
+
+# Manejo de las llaves SSH para Ansible
+
+En el servidor donde ejecutaremos *Ansible*, debemos generar un par de llaves
+públicas y privadas para que los equipos a aprovisionar puedan validar nuestra
+identidad:
+
+``` bash
+$ ssh-keygen -t rsa -b 4096
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/user/.ssh/id_rsa): /home/user/.ssh/key_name
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/user/.ssh/key_name
+Your public key has been saved in/home/user/.ssh/key_name.pub
+The key fingerprint is:
+SHA256:XXXXXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXX user@user
+The key randomart image is:
++---[RSA 4096]----+
+|. o...o.o        |
+|oO o . *+.       |
+|*o* + B.+o       |
+|=oo. B +..       |
+|oo. o . So.      |
+| .  . ..o  =     |
+|   o o .. + o    |
+|E ..o o  . .     |
+| .o. +.          |
++----[SHA256]-----+
+```
+
+A continuación, debemos iniciar el agente SSH y configurar las variables de
+entorno necesarias para que nuestro shell pueda comunicarse con él.
+
+``` bash
+$ eval "$(ssh-agent -s)"
+> Agent pid 666
+```
+
+Luego, debemos añadir la clave SSH al agente utilizando `ssh-add` para cargar
+la clave privada:
+
+``` bash
+ssh-add /home/user/.ssh/key_name
+```
+
+Posteriormente, debemos agregar la clave pública a los hosts de *Ansible*. La
+forma *tradicional* de hacerlo es copiando la llave a cada uno de los equipos:
+
+``` bash
+ssh-copy-id -i ./home/user/.ssh/key_name <USER>@<IP>
+```
+
+Sin embargo, *Ansible* nos permite automatizar esta tarea; para esta
+tarea deberemos crear un *playbook* de la tarea:
+
+``` yaml
+---
+- name: Distribute SSH public key
+  hosts: servers
+  gather_facts: no
+  tasks:
+    - name: Make sure the key is present
+      ansible.posix.authorized_key:
+        user: <REMOTE_USER>
+        state: present
+        key: "{{ lookup('file', '<PATH_PUBLIC_KEY>') }}"
+```
+
+Además de esto hay que definir el *inventario* de equipos a
+aprovisionar, en *Ansible* este inventario se puede definir en formato
+[`yaml`]{style="background-color: new_icesi_gray_2"}:
+
+``` yaml
+all:
+  children:
+    servers:
+      hosts:
+        server_1:
+          ansible_host: 192.0.2.10
+        server_2:
+          ansible_host: 192.0.2.20
+        server_3:
+          ansible_host: 192.0.2.30
+    production:
+      children:
+        servers:
+      vars:
+        ansible_user: <REMOTE_USER>
+        ansible_ssh_private_key_file: <PATH_PRIVATE_KEY>
+```
+
+Antes de ejecutar el *Playbook* de *Ansible* se debe asegurar que el
+servidor que orquestará el aprovisionamiento los conozca para ello,
+deberemos agregarlos a los *know host* de ssh:
+
+``` bash
+ssh-keyscan -f servers.txt >> ~/.ssh/known_hosts
+```
+
+Donde *servers.txt* tiene la lista de direcciones IPs de los servidores a
+conectarse (NOTA: esta es una forma muy sencilla de gestionar inventarios de
+red, sin embargo podríamos integrar otras soluciones como NetBox); luego
+podemos ejecutar el playbook:
+
+``` bash
+ansible-playbook -i inventory.ini push_keys.yml --ask-pass
+```
+
+Se puede validar la conexión con los equipos con el comando:
+
+``` bash
+ansible servers  -m ping -i inventory.yml
+```
+
+# Automatización de redes con Paramiko
+
+Paramiko es un módulo de Python que permite la conexión a servidores remotos
+utilizando SSH, es un módulo muy útil para automatizar tareas de red, y es una
+alternativa que nos puede dar un poco mas de flexibilidad para la
+automatización de redes. Sin embargo requiero de conjunto de pasos adicionales
+y la escritura de código para cumplir con la tarea en cuestión.
 
 ```bash
 sudo apt install python3-venv 
