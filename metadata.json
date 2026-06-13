@@ -1,0 +1,6 @@
+{
+  "name": "Onion Techne",
+  "description": "Digital Sovereignty, privacy research, and cryptographic publications ledger by ROOT@ANONYMOUS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
