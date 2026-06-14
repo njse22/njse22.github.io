@@ -13,6 +13,7 @@ authorRoleEs: Ing. Telematico
 authorAvatar: https://avatars.githubusercontent.com/u/38898558?v=4
 publishedDate: 2026.04.01
 tags: ['NETWORKING', 'PYTHON', 'ANSIBLE']
+image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTORvCslA2U5FgNOFDYcc1iVdRvSjt4K1umT_7eLqxzRpsYMnINRfjKFI4hQeiQc5IfOEZCx_sQcuczKTKOKorhxRkUceJRcLXqlznTJBLpHwXX7RIjdPtkFvk4LYfn1u2eX3VPjUoYRbuEJ9MCB3MQCU-J9OSmCq0he8a-qYbdKb8TjdFKt4ZTpfrilNoFx2RWvVWOUlzqkXqalw18Ej1xBJTegqO6itk_IpNNOPWArmN5TfYGtD0RtVky-VpMjIBSuQyQtDcBn0"
 ---
 
 # About this guide

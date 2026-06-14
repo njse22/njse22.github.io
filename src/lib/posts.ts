@@ -94,6 +94,7 @@ function parseBlogPosts(): BlogPost[] {
       tags: data.tags || [],
       content: body,
       contentEs: esBody,
+      image: data.image || '',
     });
   }
 

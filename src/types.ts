@@ -19,6 +19,7 @@ export interface BlogPost {
   tags: string[];
   content: string;
   contentEs?: string;
+  image?: string;
 }
 
 export interface Publication {
