@@ -22,9 +22,11 @@ export default function Footer({ language }: FooterProps) {
               <ShieldAlert className="text-secondary text-sm w-4 h-4 animate-pulse" />
               <span>{t.userLabel}: <span className="text-secondary select-all">njse22@telematics</span></span>
             </div>
+	    {/*
             <span className="text-on-surface-variant opacity-50 text-[10px]" id="footer-station-label">
               {t.station}: TERMINAL_09 // UPTIME: 342:12:04
             </span>
+	    */}
           </div>
 
           {/* Uptime and connection state */}
@@ -34,9 +36,11 @@ export default function Footer({ language }: FooterProps) {
               <span className="text-secondary select-none">{t.systemOnline}</span>
             </div>
             <div className="h-4 w-[1px] bg-primary/20 hidden sm:block"></div>
+	    {/*
             <div className="flex items-center gap-2 text-secondary opacity-60 hover:opacity-100" id="uptime-percent">
               <span>{t.uptime}: 99.98%</span>
             </div>
+	    */}
           </div>
         </div>
 

@@ -46,7 +46,7 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
               <div id="term-dot-green" className="w-3 h-3 rounded-full bg-[#64e060]/50 hover:bg-secondary transition-colors"></div>
             </div>
             <span className="font-mono text-xs text-on-surface-variant opacity-70" id="terminal-session-label">
-              session: anonymous@tor-exit-node
+              session: njse22@telematics
             </span>
             <div className="w-12"></div>
           </div>
@@ -63,8 +63,8 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                 
                 <p className="font-sans text-base sm:text-lg text-on-surface-variant leading-relaxed opacity-95" id="whoami-long-bio">
                   {language === 'en' 
-                    ? "Independent privacy researcher and digital cartographer. Currently documenting the erosion of anonymity in decentralized networks and building tools for sovereign communication. Based in the metadata-less void."
-                    : "Investigador independiente de privacidad y cartógrafo digital. Actualmente documento la erosión de la anonimidad en redes descentralizadas y construyo herramientas para la comunicación soberana. Ubicado en el vacío libre de metadatos."}
+                    ? "Telematics Engineer and Master's candidate with a strong passion for solving complex problems through technology. My career unfolds at the intersection of applied research and telecommunications. \n As a researcher at the i2t and CENIT centers (Universidad Icesi), I work on projects that connect engineering with healthcare, such as developing telemedicine systems for monitoring Parkinson's disease.\n This involves integrating specialized hardware with signal processing algorithms and data analytics. In the telecommunications field, my technical expertise includes Software-Defined Radio (SDR), consulting for the National Spectrum Agency (ANE), and modernizing corporate networks through IPv6 transitions in Dual-Stack and IPv6-Mostly architectures. Additionally, I have experience in network monitoring using protocols like SNMP and tools such as Telegraf, Grafana, and Prometheus.\n Furthermore, as an adjunct professor, I am dedicated to the education of engineers, designing hands-on experiences, infrastructure, and programming laboratories, as well as teaching Infrastructure as Code (IaC) tools and practices."
+                    : "Ingeniero telemático y candidato a magister con una gran pasión por resolver problemas complejos mediante la tecnología. Mi trayectoria profesional se desarrolla en la intersección entre la investigación aplicada y las telecomunicaciones.\n Como investigador en los centros i2t y CENIT (Universidad Icesi), trabajo en proyectos que combinan la ingeniería y el desarrollo de sistemas de telemedicina para el seguimiento de la enfermedad de Parkinson.\n Esto implica la integración de hardware especializado con algoritmos de procesamiento de señales y análisis de datos. En el ámbito de las telecomunicaciones, mi experiencia técnica abarca la radio definida por software (SDR), la consultoría para la Agencia Nacional del Espectro (ANE) y la modernización de redes corporativas mediante la transición a IPv6 en arquitecturas Dual-Stack e IPv6 Mostly.\n Además, cuento con experiencia en la supervisión de redes mediante protocolos como SNMP y herramientas como Telegraf, Grafana y Prometheus. Por otra parte, en mi faceta de profesor hora catedra, me dedico a la formación de ingenieros, diseñando experiencias prácticas, infraestructuras y laboratorios de programación, así como impartiendo clases sobre herramientas y prácticas de Infraestructura como código (IaC)."}
                 </p>
               </div>
 
@@ -81,7 +81,7 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                 <div className="flex flex-wrap gap-3" id="social-terminal-buttons-container">
                   <a 
                     id="terminal-link-github"
-                    href="https://github.com" 
+                    href="https://github.com/njse22" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-primary/40 text-primary font-mono text-xs hover:bg-primary/10 transition-all cursor-pointer"
@@ -95,17 +95,17 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-primary/40 text-primary font-mono text-xs hover:bg-primary/10 transition-all cursor-pointer"
                   >
                     <KeyRound className="w-4 h-4" />
-                    <span>PGP Key</span>
+                    <span>Research</span>
                   </button>
                   <a 
                     id="terminal-link-mastodon"
-                    href="https://mastodon.social" 
+                    href="https://www.linkedin.com/in/njse22/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-primary/40 text-primary font-mono text-xs hover:bg-primary/10 transition-all cursor-pointer"
                   >
                     <Radio className="w-3.5 h-3.5" />
-                    <span>Mastodon</span>
+                    <span>Linkedin</span>
                   </a>
                 </div>
               </div>
@@ -121,8 +121,8 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                 <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-full border-2 border-primary/30 p-1 bg-[#131313] overflow-hidden">
                   <img 
                     id="cyberpunk-avatar-photo"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdgiLqtYl7PlN2H-sC7jodptewpY7_R53SlEC1SzqAY_vGU1zKhbVCtcQ_eusF0vm_SXZyg2RTFV-f3I1rBYVupcc0_9pTcy1_UO1JeCCRxoZ_yTYYnW_ETaez_N5ursIKnYfIZkcNijCzdr1_DWeIvypKck90Op6c3GJJWFJjB1s947Eivu5_heISS5jvUyNOcpZmllahZ3o6KAfMhFw-G4n67pVODd0eI5SUtFBVKr2ttX8gZd0S8vpudbT4i_UasdtC1ZrJo7A" 
-                    alt="Cyberpunk Hooded Portrait" 
+                    src="https://avatars.githubusercontent.com/u/38898558?v=4" 
+                    alt="GitHub Avatar" 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
                   />
@@ -132,7 +132,7 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
               {/* User Anonymous Signature Unique Hex Code */}
               <div className="mt-4 text-center select-all cursor-help" title="Cryptographical signature unique ID">
                 <span className="font-mono text-[11px] text-on-surface-variant/60 tracking-wider">
-                  ID: #0x8F22A17E4CDF0022
+                  ID: FE80::6E:6A:73:65:32:32/64
                 </span>
               </div>
             </div>

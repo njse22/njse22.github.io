@@ -121,12 +121,12 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
             Research_&_Publications
           </h1>
           <p className="font-mono text-xs text-on-surface-variant opacity-70">
-            {t.directory}: /home/anonymous/archive/papers
+            {t.directory}: /home/njse22/archive/papers
           </p>
         </div>
 
         {/* System metrics badges */}
-        <div className="flex flex-wrap gap-4 pt-4" id="research-metrics-badges">
+	{/*<div className="flex flex-wrap gap-4 pt-4" id="research-metrics-badges">
           <div className="bg-[#201f1f] p-4 border border-primary/25 flex items-center gap-3 select-none" id="status-encrypted-badge">
             <Shield className="text-secondary w-5 h-5 animate-pulse" />
             <span className="font-mono text-xs">
@@ -140,7 +140,7 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
               {t.totalRecords}: <span className="text-[#e9b3ff] font-bold">128_KIB</span>
             </span>
           </div>
-        </div>
+        </div>*/}
       </section>
 
       {/* PUBLICATION LIST TABLE (ls -l Linux Shell terminal representation) */}
@@ -252,6 +252,7 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
       <aside className="grid md:grid-cols-2 gap-8 my-8" id="research-supplemental-aside">
         
         {/* PGP KEY BOX */}
+	{/*
         <div className="bg-[#0e0e0e] border border-primary/20 p-6 sm:p-8 relative overflow-hidden group rounded-none" id="aside-gpg-fngerprint-box">
           <div className="relative z-10 space-y-6" id="gpg-box-inner">
             <h4 className="font-mono text-lg font-bold text-primary uppercase select-none flex items-center gap-2">
@@ -293,13 +294,14 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
             </div>
           </div>
 
-          {/* Large decorative watermark overlay */}
+
           <div className="absolute -right-10 -bottom-10 opacity-[0.02] transform rotate-12 group-hover:rotate-6 group-hover:scale-105 pointer-events-none transition-transform duration-700" id="gpg-decor-shield">
             <Shield className="w-48 h-48 text-[#e9b3ff]" />
           </div>
-        </div>
+        </div> */}
 
         {/* SECURE RELAY FORM */}
+	{/*
         <div className="bg-[#0e0e0e] border border-primary/20 p-6 sm:p-8 rounded-none flex flex-col justify-between space-y-6" id="aside-secure-contact-box">
           
           <div className="space-y-4" id="secure-contact-headers">
@@ -312,7 +314,7 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
           </div>
 
           <div className="space-y-4" id="secure-contact-interaction">
-            {/* Terminal log response module */}
+
             {terminalOutput.length > 0 && (
               <div className="p-3.5 bg-[#131313] border border-secondary/30 text-[10px] sm:text-xs font-mono text-[#64e060]/90 space-y-1.5 overflow-hidden" id="contact-terminal-outputs">
                 {terminalOutput.map((logLine, logIdx) => (
@@ -347,6 +349,7 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
           </div>
 
         </div>
+	*/}
 
       </aside>
 
