@@ -1,35 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TabType, LanguageType } from '../types';
 import { getBlogPosts } from '../lib/posts';
 import { TRANSLATIONS } from '../App';
 import { motion } from 'motion/react';
-import { Github, KeyRound, Radio, ArrowRight, Rss, ArrowUpRight, Terminal } from 'lucide-react';
+import { Github, KeyRound, Radio, ArrowRight } from 'lucide-react';
 
 interface HomeViewProps {
   key?: string;
   setActiveTab: (tab: TabType) => void;
   setSelectedPostId: (id: string) => void;
   language: LanguageType;
-  onEnlist: (email: string) => void;
 }
 
-export default function HomeView({ setActiveTab, setSelectedPostId, language, onEnlist }: HomeViewProps) {
+export default function HomeView({ setActiveTab, setSelectedPostId, language }: HomeViewProps) {
   const t = TRANSLATIONS[language];
-  const [emailInput, setEmailInput] = useState('');
-  const [enlistedMsg, setEnlistedMsg] = useState(false);
 
   // Filter posts for Home feed (take first 3 as Latest Intel)
   const latestIntel = getBlogPosts().slice(0, 3);
-
-  const handleSubmitEnlist = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (emailInput.trim()) {
-      onEnlist(emailInput);
-      setEnlistedMsg(true);
-      setEmailInput('');
-      setTimeout(() => setEnlistedMsg(false), 8000);
-    }
-  };
 
   const handleCardClick = (postId: string) => {
     setSelectedPostId(postId);
@@ -245,58 +232,6 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language, on
           })}
 
         </div>
-      </section>
-
-      {/* JOIN THE RESISTANCE: Newsletter subscription panel */}
-      <section className="bg-secondary/5 border-2 border-secondary/35 p-6 sm:p-10 md:p-12 text-center space-y-6" id="join-resistance-parent-section">
-        <h2 className="font-mono text-3xl font-extrabold text-secondary uppercase tracking-tight italic select-none" id="join-resistance-title">
-          {t.joinResistance}
-        </h2>
-        
-        <p className="font-sans text-sm sm:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed opacity-90" id="join-resistance-body">
-          {t.joinText}
-        </p>
-
-        {enlistedMsg ? (
-          <motion.div 
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="p-4 bg-secondary/15 border border-secondary text-secondary font-mono text-sm inline-block max-w-md mx-auto"
-            id="register-enlist-success"
-          >
-            <div className="flex items-center justify-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
-              <span>[ENLINK_STATUS] OK // DECRYPTED_MEMBERSHIP_SECURED</span>
-            </div>
-          </motion.div>
-        ) : (
-          <form 
-            id="enlist-register-form"
-            onSubmit={handleSubmitEnlist} 
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto items-stretch"
-          >
-            <div className="relative flex-grow" id="enlist-input-box">
-              <input 
-                id="enlist-email-input"
-                type="email" 
-                required
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="anonymous@onion.mail"
-                className="w-full bg-[#131313] border-b border-primary/50 text-secondary p-3 focus:outline-none focus:border-secondary transition-colors font-mono text-sm placeholder:text-on-surface-variant/30 text-left cursor-text"
-              />
-              <span className="absolute right-3 bottom-3 text-secondary animate-pulse pointer-events-none text-base">_</span>
-            </div>
-            
-            <button 
-              id="enlist-submit-btn"
-              type="submit"
-              className="bg-secondary text-on-secondary px-6 py-3 font-mono font-bold text-xs uppercase tracking-widest hover:scale-102 hover:shadow-[0_0_15px_rgba(100,224,96,0.4)] active:scale-95 transition-all duration-150 cursor-pointer text-center whitespace-nowrap"
-            >
-              {t.enlist}
-            </button>
-          </form>
-        )}
       </section>
 
     </motion.div>

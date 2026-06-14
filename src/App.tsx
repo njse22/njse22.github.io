@@ -6,7 +6,6 @@ import HomeView from './components/HomeView';
 import BlogView from './components/BlogView';
 import BlogDetailView from './components/BlogDetailView';
 import ResearchView from './components/ResearchView';
-import { Shield, KeyRound, Globe, Terminal, X, WifiOff, FileText, Check, Copy } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 
 // GLOBAL MULTILINGUAL TRANSLATION ENGINE DETECTED PROMINENTLY IN SCENE SECTIONS
@@ -116,25 +115,7 @@ export default function App() {
   const [selectedPostId, setSelectedPostId] = useState<string>('zero-knowledge-foundations');
   const [language, setLanguage] = useState<LanguageType>('en');
 
-  // Interactive Popup Modal Triggers
-  const [gpgModalOpen, setGpgModalOpen] = useState(false);
-  const [onionModalOpen, setOnionModalOpen] = useState(false);
-  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
-
-  // Copy state variables inside modals
-  const [copiedText, setCopiedText] = useState(false);
-
   const t = TRANSLATIONS[language];
-
-  const handleEnlist = (email: string) => {
-    console.log(`Secured newsletter subscriber registration requested for address: ${email}`);
-  };
-
-  const handleCopyText = (content: string) => {
-    navigator.clipboard.writeText(content);
-    setCopiedText(true);
-    setTimeout(() => setCopiedText(false), 2500);
-  };
 
   return (
     <div className="min-h-screen bg-[#131313] text-[#e5e2e1] flex flex-col font-sans transition-colors duration-200 selection:bg-primary/30 selection:text-white pb-0">
@@ -163,7 +144,6 @@ export default function App() {
               setActiveTab={setActiveTab} 
               setSelectedPostId={setSelectedPostId} 
               language={language}
-              onEnlist={handleEnlist}
             />
           )}
 
@@ -194,189 +174,9 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* NAVIGATION FOOTER */}
       <Footer 
         language={language}
-        onViewGpg={() => setGpgModalOpen(true)}
-        onOpenPrivacy={() => setPrivacyModalOpen(true)}
-        onOpenOnionModal={() => setOnionModalOpen(true)}
       />
-
-      {/* INTERACTIVE COMPONENT: Onion Private Link Popup Modal */}
-      {onionModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" id="onion-service-modal">
-          <div className="bg-[#18101c] border-2 border-secondary p-6 sm:p-8 max-w-lg w-full relative phosphor-glow rounded-none">
-            
-            <button 
-              id="onion-close-btn"
-              onClick={() => setOnionModalOpen(false)}
-              className="absolute top-4 right-4 text-on-surface-variant hover:text-white cursor-pointer p-1 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-6 font-mono" id="onion-modal-content">
-              <div className="flex items-center gap-3 text-secondary">
-                <Globe className="w-5 h-5 text-secondary animate-pulse" />
-                <h3 className="font-bold text-base uppercase text-secondary">Secure Onion Service Location</h3>
-              </div>
-
-              <p className="text-sm text-on-surface-variant leading-relaxed">
-                To browse this publishing ledger with state-of-the-art anonymity and protection, toggle a compatible Tor browser and establish a link directly to our v3 routing node:
-              </p>
-
-              {/* Encoded private link address */}
-              <div className="p-4 bg-black border border-primary/25 text-xs text-secondary/90 flex justify-between items-center break-all select-all gap-4">
-                <span>oniontchn7fx3b91zpy72gwnz0192laospx7y19axp28cxq92.onion</span>
-                <button 
-                  id="onion-copy-btn"
-                  onClick={() => handleCopyText('oniontchn7fx3b91zpy72gwnz0192laospx7y19axp28cxq92.onion')}
-                  className="p-1.5 bg-secondary/15 hover:bg-secondary/30 text-secondary hover:text-white transition-colors cursor-pointer border border-secondary/35 rounded-none flex-shrink-0"
-                  title="Copy Onion Link"
-                >
-                  {copiedText ? <Check className="w-4 h-4 text-secondary" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
-
-              <div className="space-y-3 pt-3 border-t border-primary/10 text-xs">
-                <div className="flex gap-2 text-[10px] text-on-surface-variant/50">
-                  <span className="text-secondary">[!]</span>
-                  <span>WARNING: onion directories are exclusively routable within decentralized hidden layers. Clearweb browser engines will raise resolving alerts.</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
-
-      {/* INTERACTIVE COMPONENT: Full GPG Public Key ASCII block popup modal */}
-      {gpgModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" id="gpg-payload-modal">
-          <div className="bg-[#18101c] border-2 border-primary/60 p-6 sm:p-8 max-w-2xl w-full relative phosphor-glow rounded-none">
-            
-            <button 
-              id="gpg-close-btn"
-              onClick={() => setGpgModalOpen(false)}
-              className="absolute top-4 right-4 text-on-surface-variant hover:text-white cursor-pointer p-1 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-6 font-mono" id="gpg-modal-content">
-              <div className="flex items-center gap-3 text-primary">
-                <KeyRound className="w-5 h-5 text-primary" />
-                <h3 className="font-bold text-base uppercase text-primary">GPG PUBLIC KEY BLOCK</h3>
-              </div>
-
-              <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                Use the public key block below to verify cryptographic publication signatures or transmit encrypted envelopes safely:
-              </p>
-
-              {/* Raw printable PGP box with copy triggers */}
-              <div className="relative" id="raw-gpg-payload-parent">
-                <button
-                  id="gpg-copy-payload-btn"
-                  onClick={() => handleCopyText(`-----BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v2.4.0 (GNU/Linux)
-
-mQINBFmNfBEBEADcv9Gg4pS4m7x6L8Y7HPr27O5kY/9s2D7Z8A9F3hJ6b2v9N3u2
-g9eYF/0D7W2qXg8mS8K1F8S20U3k/u3g0mSeFnsmSe28sN9v2K9sU80f8/J3SNe2
-EF82312199A2018462D4C7E100224FF392B18E30v8f9sU20snSe20vX8vX2snS8
-=y3x0
------END PGP PUBLIC KEY BLOCK-----`)}
-                  className="absolute top-3 right-3 text-secondary bg-[#131113] hover:bg-secondary/20 border border-secondary/40 px-2 py-1 text-xs cursor-pointer select-none transition-all flex items-center gap-1 font-bold"
-                >
-                  {copiedText ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-secondary" />
-                      <span>{t.copied}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span>{t.copy}</span>
-                    </>
-                  )}
-                </button>
-
-                <textarea
-                  readOnly
-                  rows={8}
-                  className="w-full bg-[#0e0e0e] border border-primary/25 text-on-surface-variant/80 p-4 font-mono text-[10px] leading-tight select-all focus:outline-none resize-none cursor-text pt-10"
-                  value={`-----BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v2.4.0 (GNU/Linux)
-
-mQINBFmNfBEBEADcv9Gg4pS4m7x6L8Y7HPr27O5kY/9s2D7Z8A9F3hJ6b2v9N3u2
-g9eYF/0D7W2qXg8mS8K1F8S20U3k/u3g0mSeFnsmSe28sN9v2K9sU80f8/J3SNe2
-EF82312199A2018462D4C7E100224FF392B18E30v8f9sU20snSe20vX8vX2snS8
-=y3x0
------END PGP PUBLIC KEY BLOCK-----`}
-                />
-              </div>
-
-              <div className="flex justify-between items-center text-[10px] text-on-surface-variant/40 pt-2 border-t border-primary/10">
-                <span>FINGERPRINT: EF82312199A2018462D4C7E100224FF392B18E30</span>
-                <span className="text-secondary">[OK_VERIFIED]</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
-
-      {/* INTERACTIVE COMPONENT: Privacy policy detail modal */}
-      {privacyModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" id="privacy-policy-modal">
-          <div className="bg-[#18101c] border-2 border-primary/60 p-6 sm:p-8 max-w-xl w-full relative phosphor-glow rounded-none">
-            
-            <button 
-              id="privacy-close-btn"
-              onClick={() => setPrivacyModalOpen(false)}
-              className="absolute top-4 right-4 text-on-surface-variant hover:text-white cursor-pointer p-1 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-5 font-mono" id="privacy-modal-content">
-              <div className="flex items-center gap-3 text-primary">
-                <FileText className="w-5 h-5 text-primary animate-pulse" />
-                <h3 className="font-bold text-base uppercase text-primary">PRIVACY_AUDIT_LOGS</h3>
-              </div>
-
-              <p className="text-sm text-on-surface font-semibold underline decoration-secondary tracking-wide">
-                No Trackers. No Cookies. No Third-Party Integrations.
-              </p>
-
-              <div className="text-xs text-on-surface-variant/80 space-y-4 max-h-72 overflow-y-auto pr-2" id="privacy-scrollable">
-                <p>
-                  1. **ANONYMINITY DESIGN**: This station is explicitly optimized to ensure user payloads are not logged. All analytical monitoring code has been bypassed.
-                </p>
-                <p>
-                  2. **METADATA FORENSICS**: Our publications guide individuals on sanitizing Exif and system fingerprints. In accordance, we gather zero location matrices, resolution parameters, or software identifiers.
-                </p>
-                <p>
-                  3. **DECENTRALIZED COMPATIBILITY**: Serving requests from tor relays means we are isolated from clearweb tracking tunnels. Connection handshakes are ephemeral and decay instantly upon session endings.
-                </p>
-                <p>
-                  4. **LOG ARCHIVE PURGE**: Contact messages sent via our secure relay pipe are encrypted symmetrically immediately. No plaintext payloads linger in permanent database repositories.
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-primary/10 flex justify-end">
-                <button
-                  id="privacy-ack-btn"
-                  onClick={() => setPrivacyModalOpen(false)}
-                  className="px-5 py-2 bg-secondary text-on-secondary hover:scale-103 font-mono font-bold text-xs uppercase tracking-widest cursor-pointer transition-all"
-                >
-                  ACKNOWLEDGE_POLICIES
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
 
     </div>
   );

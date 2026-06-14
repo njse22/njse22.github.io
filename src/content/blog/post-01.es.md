@@ -1,6 +1,6 @@
 ---
 id: network-automation
-date: 2025.01.15
+date: 2026.04.01
 readTime: 15 MIN READ
 readTimeEs: 15 MIN DE LECTURA
 title: Network Automation with Python, Paramiko and Ansible
@@ -8,10 +8,10 @@ titleEs: Automatización de Redes con Python, Paramiko y Ansible
 summary: A practical guide to automating network device configuration using Python Paramiko and Ansible, with SSH configuration examples for Cisco devices.
 summaryEs: Una guía práctica para automatizar la configuración de dispositivos de red usando Python Paramiko y Ansible, con ejemplos de configuración SSH para equipos Cisco.
 author: u/njse22
-authorRole: Telematics Engineering Student
-authorRoleEs: Estudiante de Ingeniería Telemática
-authorAvatar: https://lh3.googleusercontent.com/aida-public/AB6AXuCiVMWxvdJ1hAv_QpV_2U_LHS8j2vryENzgYUT_RN7ERn1cvXOMbjgSBCEZU2JxBkd2NXYGpaDzmjBoWnx95mDyG9WTGYCwTyO9a9jSz3Bul5MNWdCZN8xacak1a7WLM_V8jzJ5gNDTbZrvqfBAnTxTWecyCPUQTNHTkJpC1JBCsboFgvHbx8uYAJEgpnVshPLMjroYW5ldyP0B6fIdzzRQIxLKOteI2VyUuEpNzYSF3PNFB5u_WaDhDrmuqBUoa1XOCHXD4qsmm4o
-publishedDate: 2025.01.15
+authorRole: Telematics Engineering 
+authorRoleEs: Ingeniero Telemática
+authorAvatar: https://avatars.githubusercontent.com/u/38898558?s=96&v=4
+publishedDate: 2026.04.01
 tags: ['NETWORKING', 'PYTHON', 'ANSIBLE']
 ---
 

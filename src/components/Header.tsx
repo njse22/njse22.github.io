@@ -12,10 +12,10 @@ interface HeaderProps {
 
 export default function Header({ activeTab, setActiveTab, language, setLanguage }: HeaderProps) {
   const t = TRANSLATIONS[language];
-  const [scrambleText, setScrambleText] = useState('ROOT@ANONYMOUS');
+  const [scrambleText, setScrambleText] = useState('ROOT@NJSE22');
 
   const handleMouseEnter = () => {
-    const original = 'ROOT@ANONYMOUS';
+    const original = 'ROOT@NJSE22';
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
     let iterations = 0;
     
@@ -37,7 +37,7 @@ export default function Header({ activeTab, setActiveTab, language, setLanguage 
   };
 
   const handleMouseLeave = () => {
-    setScrambleText('ROOT@ANONYMOUS');
+    setScrambleText('ROOT@NJSE22');
   };
 
   return (

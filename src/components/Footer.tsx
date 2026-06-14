@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LanguageType } from '../types';
 import { TRANSLATIONS } from '../App';
-import { ShieldAlert, KeyRound, Globe, Terminal, Link2, HelpCircle } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 
 interface FooterProps {
   language: LanguageType;
-  onViewGpg: () => void;
-  onOpenPrivacy: () => void;
-  onOpenOnionModal: () => void;
 }
 
-export default function Footer({ language, onViewGpg, onOpenPrivacy, onOpenOnionModal }: FooterProps) {
+export default function Footer({ language }: FooterProps) {
   const t = TRANSLATIONS[language];
 
   return (
@@ -23,36 +20,11 @@ export default function Footer({ language, onViewGpg, onOpenPrivacy, onOpenOnion
           <div className="flex flex-col gap-2 items-center md:items-start" id="user-info-badge-container">
             <div className="flex items-center gap-2 text-primary" id="footer-user-label">
               <ShieldAlert className="text-secondary text-sm w-4 h-4 animate-pulse" />
-              <span>{t.userLabel}: <span className="text-secondary select-all">anonymous@tor-network</span></span>
+              <span>{t.userLabel}: <span className="text-secondary select-all">njse22@telematics</span></span>
             </div>
             <span className="text-on-surface-variant opacity-50 text-[10px]" id="footer-station-label">
               {t.station}: TERMINAL_09 // UPTIME: 342:12:04
             </span>
-          </div>
-
-          {/* Secure relays and settings link list */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-8" id="footer-links-container">
-            <button
-              id="onion-service-trigger-btn"
-              onClick={onOpenOnionModal}
-              className="text-on-surface-variant opacity-70 hover:opacity-100 hover:text-secondary hover:bg-secondary/10 px-2 py-1 transition-all hover:glow-secondary cursor-pointer border border-transparent hover:border-secondary/30"
-            >
-              {t.onionService}
-            </button>
-            <button
-              id="gpg-key-footer-btn"
-              onClick={onViewGpg}
-              className="text-on-surface-variant opacity-70 hover:opacity-100 hover:text-secondary hover:bg-secondary/10 px-2 py-1 transition-all hover:glow-secondary cursor-pointer border border-transparent hover:border-secondary/30"
-            >
-              {t.gpgKey}
-            </button>
-            <button
-              id="privacy-policy-footer-btn"
-              onClick={onOpenPrivacy}
-              className="text-on-surface-variant opacity-70 hover:opacity-100 hover:text-secondary hover:bg-secondary/10 px-2 py-1 transition-all hover:glow-secondary cursor-pointer border border-transparent hover:border-secondary/30"
-            >
-              {t.privacyPolicy}
-            </button>
           </div>
 
           {/* Uptime and connection state */}

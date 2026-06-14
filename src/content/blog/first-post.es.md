@@ -10,7 +10,7 @@ summaryEs: Una guía básica para la automatización de redes utilizando Python 
 author: u/njse22
 authorRole: Telematics Engineering Student
 authorRoleEs: Estudiante de Ingeniería Telemática
-authorAvatar: https://lh3.googleusercontent.com/aida-public/AB6AXuCiVMWxvdJ1hAv_QpV_2U_LHS8j2vryENzgYUT_RN7ERn1cvXOMbjgSBCEZU2JxBkd2NXYGpaDzmjBoWnx95mDyG9WTGYCwTyO9a9jSz3Bul5MNWdCZN8xacak1a7WLM_V8jzJ5gNDTbZrvqfBAnTxTWecyCPUQTNHTkJpC1JBCsboFgvHbx8uYAJEgpnVshPLMjroYW5ldyP0B6fIdzzRQIxLKOteI2VyUuEpNzYSF3PNFB5u_WaDhDrmuqBUoa1XOCHXD4qsmm4o
+authorAvatar: https://avatars.githubusercontent.com/u/38898558?s=96&v=4
 publishedDate: 2025.01.10
 tags: ['NETWORKING', 'PYTHON', 'ANSIBLE']
 ---
