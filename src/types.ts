@@ -30,7 +30,7 @@ export interface Publication {
   authors: string;
   year: string;
   venue: string;
-  venueType: 'premium' | 'conference' | 'whitepaper' | 'journal';
+  venueType: 'premium' | 'conference' | 'whitepaper' | 'journal' | 'thesis' | 'book' | 'other';
   pdfAvailable: boolean;
   srcAvailable: boolean;
   bibAvailable: boolean;
