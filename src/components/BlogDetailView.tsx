@@ -271,7 +271,7 @@ export default function BlogDetailView({ postId, setActiveTab, language }: BlogD
           </ReactMarkdown>
         </div>
 
-        {/* FOOTER INTERACTION UTILS */}
+        {/* FOOTER INTERACTION UTILS 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6" id="detail-actions-footer">
           <div className="flex items-center gap-6" id="detail-interactive-group">
             <button
@@ -304,6 +304,7 @@ export default function BlogDetailView({ postId, setActiveTab, language }: BlogD
             </div>
           </div>
         </div>
+	*/}
 
       </article>
 
