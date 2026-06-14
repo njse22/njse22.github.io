@@ -73,7 +73,7 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                 <div className="flex items-center gap-3 select-none" id="searching-status-badge">
                   <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse shadow-[0_0_10px_#64e060]"></span>
                   <span className="font-mono text-xs text-secondary uppercase tracking-widest font-semibold">
-                    {t.statusLabel}: {t.statusTruth}
+		      EMAIL: njse22@gmail.com
                   </span>
                 </div>
 
