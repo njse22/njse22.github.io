@@ -13,7 +13,7 @@ authorRoleEs: Ing. Telematico
 authorAvatar: https://avatars.githubusercontent.com/u/38898558?v=4
 publishedDate: 2024.08.30
 tags: ['NETWORKING', 'VIM', 'BASH', 'UBUNTU', 'LINUX']
-image: ./"images/banner_blog_02.png"
+image: "./images/banner_blog_02.png"
 ---
 # Sobre este Articulo 
 

@@ -111,3 +111,20 @@ export function getBlogPosts(): BlogPost[] {
   }
   return cachedPosts;
 }
+
+export function resolveImagePath(src: string | undefined): string {
+  if (!src) return '';
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:')) {
+    return src;
+  }
+  let cleanSrc = src;
+  if (cleanSrc.startsWith('./')) {
+    cleanSrc = cleanSrc.slice(2);
+  }
+  if (!cleanSrc.startsWith('/')) {
+    cleanSrc = '/' + cleanSrc;
+  }
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return `${baseUrl}${cleanSrc}`;
+}
+

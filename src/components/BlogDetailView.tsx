@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TabType, LanguageType } from '../types';
-import { getBlogPosts } from '../lib/posts';
+import { getBlogPosts, resolveImagePath } from '../lib/posts';
 import { TRANSLATIONS } from '../App';
 import { motion } from 'motion/react';
 import { Folder, ArrowLeft, Timer, Heart, Share2, Check, Copy } from 'lucide-react';
@@ -195,15 +195,17 @@ export default function BlogDetailView({ postId, setActiveTab, language }: BlogD
                 </blockquote>
               ),
               img: ({ src, alt, ...props }) => (
-                <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-[#0e0e0e] border border-primary/25 hover:border-secondary my-8 overflow-hidden flex items-center justify-center select-none group">
+                <div className="relative w-full aspect-[20/13] sm:aspect-[21/9] bg-[#0e0e0e] border border-primary/25 hover:border-secondary my-8 overflow-hidden flex items-center justify-center select-none group">
                   <img
-                    src={src}
+                    src={resolveImagePath(src)}
                     alt={alt}
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:opacity-55 transition-opacity duration-700 pointer-events-none"
                   />
                   <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
-                  <div className="relative z-10 text-center p-6 sm:p-8 bg-[#131313]/90 backdrop-blur-md border border-secondary/40 max-w-sm sm:max-w-md">
+
+		  {/*
+                  <div className="relative z-20 text-center p-6 sm:p-8 bg-[#131313]/90 backdrop-blur-md border border-secondary/40 max-w-sm sm:max-w-md">
                     <div className="text-secondary font-mono text-base sm:text-lg font-bold tracking-wider mb-2 glow-secondary">
                       {alt}
                     </div>
@@ -211,6 +213,7 @@ export default function BlogDetailView({ postId, setActiveTab, language }: BlogD
                       Verifying recursive SNARK proof on-chain...
                     </div>
                   </div>
+		*/}
                 </div>
               ),
               code: ({ className, children, ...props }: Record<string, unknown> & { className?: string; children?: React.ReactNode }) => {

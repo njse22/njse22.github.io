@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabType, LanguageType } from '../types';
-import { getBlogPosts } from '../lib/posts';
+import { getBlogPosts, resolveImagePath } from '../lib/posts';
 import { TRANSLATIONS } from '../App';
 import { motion } from 'motion/react';
 import { Github, KeyRound, Radio, ArrowRight } from 'lucide-react';
@@ -195,7 +195,7 @@ export default function HomeView({ setActiveTab, setSelectedPostId, language }: 
                 <div className="relative h-44 sm:h-48 overflow-hidden bg-black" id={`intel-card-img-parent-${post.id}`}>
                   <img 
                     id={`intel-card-img-${post.id}`}
-                    src={post.image || imgUrls[idx % imgUrls.length]} 
+                    src={resolveImagePath(post.image || imgUrls[idx % imgUrls.length])} 
                     alt={post.title} 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"

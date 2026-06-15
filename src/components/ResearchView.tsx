@@ -174,7 +174,7 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
                   
                   <h3 
                     id={`pub-row-title-${pub.id}`}
-                    onMouseEnter={() => handleMouseEnterPubTitle(pub.id, originalTitle)}
+		    // onMouseEnter={() => handleMouseEnterPubTitle(pub.id, originalTitle)} 
                     className="font-mono text-base font-semibold text-on-surface group-hover:text-primary transition-colors cursor-help leading-snug tracking-tight"
                   >
                     {displayTitle}
