@@ -3,7 +3,7 @@ import { Publication, LogEntry } from './types';
 export const PUBLICATIONS: Publication[] = [
   {
     id: 'pub1',
-    permissions: 'drwxr-xr-x',
+    permissions: '-r--r--r--',
     title: 'Digital Radio Mondiale (DRM) transmission and reception in GNU Radio',
     titleEs: 'Digital Radio Mondiale (DRM) transmission and reception in GNU Radio',
     authors: 'Nicolas Javier Salazar Echeverry',
@@ -16,7 +16,7 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: 'pub2',
-    permissions: '-rw-r--r--',
+    permissions: '-r--r--r--',
     title: 'Radio Signal Identification with Machine Learning and GNU Radio',
     titleEs: 'Identificación de señales radioeléctricas con técnicas de aprendizaje automático y GNU Radio',
     authors: 'Nicolas Javier Salazar Echeverry',
@@ -31,11 +31,11 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: 'pub3',
-    permissions: '-r--r--r--',
+    permissions: '-r--r-----',
     title: 'Kinect v2 and Orbbec Astra Pro Cameras for Gait Analysis: A Preliminary Comparison',
     titleEs: 'Kinect v2 and Orbbec Astra Pro Cameras for Gait Analysis: A Preliminary Comparison',
     authors: 'A. Navarro, L. Vargas, A. Arteaga, P. Madriñan, N. Salazar, H. Clavijo-Moran',
-    year: '2022',
+    year: '2023',
     venue: '2023 IEEE Colombian Caribbean Conference (C3), IEEE',
     venueType: 'conference',
     pdfAvailable: false,
@@ -45,7 +45,7 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: 'pub4',
-    permissions: 'drwxr-xr-x',
+    permissions: '-r--r--r--',
     title: 'Coexistence Study for the 2300-2400MHz IMT band in Colombia',
     titleEs: 'Coexistence Study for the 2300-2400MHz IMT band in Colombia',
     authors: 'A. Navarro, L. Vargas, N. Salazar, A. Serna-Sabater, J. Molina',
