@@ -34,6 +34,8 @@ export interface Publication {
   pdfAvailable: boolean;
   srcAvailable: boolean;
   bibAvailable: boolean;
+  pdfPath?: string;
+  doi?: string;
 }
 
 export interface LogEntry {

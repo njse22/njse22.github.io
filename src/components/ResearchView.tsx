@@ -3,7 +3,7 @@ import { Publication, TabType, LanguageType } from '../types';
 import { PUBLICATIONS } from '../data';
 import { TRANSLATIONS } from '../App';
 import { motion } from 'motion/react';
-import { FolderArchive, Award, Key, FileCode, Check, Send, Download, Terminal, Shield } from 'lucide-react';
+import { FolderArchive, Award, Key, FileCode, Check, Send, Download, Terminal, Shield, ExternalLink } from 'lucide-react';
 
 interface ResearchViewProps {
   key?: string;
@@ -205,14 +205,26 @@ EF82312199A2018462D4C7E100224FF392B18E30=...
                   {pub.pdfAvailable && (
                     <a
                       id={`pub-pdf-btn-${pub.id}`}
-                      href="#download"
-                      onClick={(e) => {
+                      href={pub.pdfPath || '#download'}
+                      download={pub.pdfPath ? `${originalTitle.replace(/ /g, '_')}.pdf` : undefined}
+                      onClick={pub.pdfPath ? undefined : (e) => {
                         e.preventDefault();
                         alert(`[ACCESS_PERM_OK] Dowloading file: "${originalTitle.replace(/ /g, '_')}.pdf"`);
                       }}
                       className="px-2.5 py-1 bg-primary text-on-primary font-mono text-[10px] hover:bg-secondary hover:text-on-secondary transition-colors cursor-pointer flex items-center gap-1 font-bold"
                     >
                       <Download className="w-3 h-3" /> PDF
+                    </a>
+                  )}
+                  {pub.doi && (
+                    <a
+                      id={`pub-doi-btn-${pub.id}`}
+                      href={pub.doi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1 border border-primary/50 text-primary font-mono text-[10px] hover:border-secondary hover:text-secondary transition-colors cursor-pointer flex items-center gap-1"
+                    >
+                      <ExternalLink className="w-3 h-3" /> DOI
                     </a>
                   )}
                   {pub.srcAvailable && (

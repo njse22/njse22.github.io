@@ -26,6 +26,8 @@ export const PUBLICATIONS: Publication[] = [
     pdfAvailable: true,
     srcAvailable: true,
     bibAvailable: true,
+    pdfPath: '/pdf/Salazar2022_Thesis.pdf',
+    doi: 'https://doi.org/10.18046/ret.v20n2.5312',
   },
   {
     id: 'pub3',
@@ -39,6 +41,7 @@ export const PUBLICATIONS: Publication[] = [
     pdfAvailable: false,
     srcAvailable: false,
     bibAvailable: false,
+    doi: 'https://doi.org/10.1109/C358618.2023.10378035',
   },
   {
     id: 'pub4',
@@ -52,6 +55,7 @@ export const PUBLICATIONS: Publication[] = [
     pdfAvailable: false,
     srcAvailable: false,
     bibAvailable: false,
+    doi: 'https://doi.org/10.1109/TLA.2024.10480302',
   },
 ];
 
