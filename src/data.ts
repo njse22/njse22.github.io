@@ -23,11 +23,11 @@ export const PUBLICATIONS: Publication[] = [
     year: '2022',
     venue: 'Bachelor degree thesis - Icesi University',
     venueType: 'thesis',
-    pdfAvailable: true,
-    srcAvailable: true,
-    bibAvailable: true,
-    pdfPath: '/pdf/Salazar2022_Thesis.pdf',
-    doi: 'https://doi.org/10.18046/ret.v20n2.5312',
+    pdfAvailable: false,
+    srcAvailable: false,
+    bibAvailable: false,
+    pdfPath: '',
+    doi: '',
   },
   {
     id: 'pub3',
@@ -41,7 +41,7 @@ export const PUBLICATIONS: Publication[] = [
     pdfAvailable: false,
     srcAvailable: false,
     bibAvailable: false,
-    doi: 'https://doi.org/10.1109/C358618.2023.10378035',
+    doi: 'https://ieeexplore.ieee.org/document/10436293',
   },
   {
     id: 'pub4',
@@ -55,7 +55,7 @@ export const PUBLICATIONS: Publication[] = [
     pdfAvailable: false,
     srcAvailable: false,
     bibAvailable: false,
-    doi: 'https://doi.org/10.1109/TLA.2024.10480302',
+    doi: 'https://ieeexplore.ieee.org/document/10789634',
   },
 ];
 
