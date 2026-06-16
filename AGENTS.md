@@ -92,3 +92,30 @@ When in doubt, omit.
 Prefer short sections and bullets. If the repo is simple, keep the file simple. If the repo is large, summarize the few structural facts that actually change how an agent should work.
 
 If `AGENTS.md` already exists at `/home/i2t/Git/njse22.github.io`, improve it in place rather than rewriting blindly. Preserve verified useful guidance, delete fluff or stale claims, and reconcile it with the current codebase.
+
+# Project Overview
+This repository hosts a personal website built with React and Vite, styled with Tailwind CSS.
+
+## Structure
+*   **Source Code:** All primary logic is in the `src/` directory.
+*   **Components:** React components are located in `src/components/`.
+*   **Content:** Blog posts and markdown content are processed using a custom browser-safe frontmatter parser and `react-markdown`.
+*   **Output:** The production build is generated in the `dist/` directory.
+
+## Tech Stack & Quirks
+*   **Framework:** React
+*   **Build Tool:** Vite
+*   **Styling:** Tailwind CSS
+*   **Typing:** TypeScript is used (Verification command: `npm run lint`).
+*   **Environment:** Uses `dotenv` for environment variables.
+*   **Architecture:** This is a single-package project.
+
+## Core Commands
+| Command | Purpose |
+| :--- | :--- |
+| `npm run dev` | Starts the local development server. |
+| `npm run build` | Compiles the application for production. |
+| `npm run preview` | Previews the production build locally. |
+| `npm run deploy` | Deploys the site to GitHub Pages. |
+| `npm run clean` | Cleans previous build artifacts. |
+| `npm run lint` | Runs TypeScript lint checks (`tsc --noEmit`). |
